@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="spot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<material name="yellow">
+    <color rgba="0.92 0.83 0.0 1"/>
+  </material>
+  <material name="black">
+    <color rgba="0.1 0.1 0.1 1"/>
+  </material>
+  <material name="grey">
+    <color rgba="0.6 0.6 0.6 1"/>
+  </material>
+
+  <!--body-->
+
+  <link name="body">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot/meshes/body.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://spot/meshes/body.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="2.80"/>
+      <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+    </inertial>
+  </link>
+
+  <!--left front shoulder-->
+
+  <link name="left_front_joint">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot/meshes/left_arm_joint.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://spot/meshes/left_arm_joint.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+    </inertial>
+  </link>
+
+
+  <joint name="left_front_shoulder" type="revolute">
+    <axis xyz="1 0 0"/>
+    <limit effort="1000.0" lower="-0.436332" upper="0.436332" velocity="0.5"/>
+    <dynamics damping="0.0" friction="0.5"/>
+    <origin rpy="0 0 0" xyz="0.78779 0.3786 0"/>
+    <parent link="body"/>
+    <child link="left_front_joint"/>
+  </joint>
+
+  <!--right front shoulder-->
+
+
+  <link name="right_front_joint">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot/meshes/right_arm_joint.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://spot/meshes/right_arm_joint.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+    </inertial>
+  </link>
+
+  <joint name="right_front_shoulder" type="revolute">
+    <axis xyz="1 0 0"/>
+    <limit effort="1000.0" lower="-0.436332" upper="0.436332" velocity="0.5"/>
+    <dynamics damping="0.0" friction="0.5"/>
+    <origin rpy="0 0 0" xyz="0.78779 -0.3786 0"/>
+    <parent link="body"/>
+    <child link="right_front_joint"/>
+  </joint>
+
+  <!--left back shoulder-->
+
+  <link name="left_back_joint">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot/meshes/left_arm_joint.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://spot/meshes/left_arm_joint.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+    </inertial>
+  </link>
+
+  <joint name="left_back_shoulder" type="revolute">
+    <axis xyz="1 0 0"/>
+    <limit effort="1000.0" lower="-0.436332" upper="0.436332" velocity="0.5"/>
+    <dynamics damping="0.0" friction="0.5"/>
+    <origin rpy="0 0 0" xyz="-1.0696 0.3786 0"/>
+    <parent link="body"/>
+    <child link="left_back_joint"/>
+  </joint>
+
+  <!--right back shoulder-->
+
+  <link name="right_back_joint">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot/meshes/right_arm_joint.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://spot/meshes/right_arm_joint.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+    </inertial>
+  </link>
+
+  <joint name="right_back_shoulder" type="revolute">
+    <axis xyz="1 0 0"/>
+    <limit effort="1000.0" lower="-0.436332" upper="0.436332" velocity="0.5"/>
+    <dynamics damping="0.0" friction="0.5"/>
+    <origin rpy="0 0 0" xyz="-1.0696 -0.3786 0"/>
+    <parent link="body"/>
+    <child link="right_back_joint"/>
+  </joint>
+
+  <!--left front arm-->
+
+  <link name="left_front_arm">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0.2 -0.57"/>
+      <geometry>
+        <mesh filename="package://spot/meshes/left_arm.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://spot/meshes/left_arm.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0.0 0 0" xyz="0 0.2 -0.57"/>
+    </collision>
+    <inertial>
+      <mass value="0.15"/>
+      <inertia ixx="1000" ixy="0" ixz="0" iyy="1000" iyz="0" izz="1000"/>
+    </inertial>
+  </link>
+
+
+  <joint name="left_front_arm_to_shoulder" type="revolute">
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="-0.610865" upper="1.48353" velocity="0.5"/>
+    <dynamics damping="0.0" friction="0.0"/>
+    <origin rpy="0 0.610865 0" xyz="0 0.2594 0.107"/>
+    <parent link="left_front_joint"/>
+    <child link="left_front_arm"/>
+  </joint>
+
+  <!--left back arm-->
+
+  <link name="left_back_arm">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0.2 -0.57"/>
+      <geometry>
+        <mesh filename="package://spot/meshes/left_arm.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://spot/meshes/left_arm.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0.0 0 0" xyz="0 0.2 -0.57"/>
+    </collision>
+    <inertial>
+      <mass value="0.15"/>
+      <inertia ixx="1000" ixy="0" ixz="0" iyy="1000" iyz="0" izz="1000"/>
+    </inertial>
+  </link>
+
+
+  <joint name="left_back_arm_to_shoulder" type="revolute">
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="-0.610865" upper="1.48353" velocity="0.5"/>
+    <dynamics damping="0.0" friction="0.0"/>
+    <origin rpy="0 0.610865 0" xyz="0 0.2594 0.107"/>
+    <parent link="left_back_joint"/>
+    <child link="left_back_arm"/>
+  </joint>
+
+  <!--right front arm-->
+
+  <link name="right_front_arm">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 -0.2 -0.57"/>
+      <geometry>
+        <mesh filename="package://spot/meshes/right_arm.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://spot/meshes/right_arm.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0.0 0 0" xyz="0 -0.2 -0.57"/>
+    </collision>
+    <inertial>
+      <mass value="0.15"/>
+      <inertia ixx="1000" ixy="0" ixz="0" iyy="1000" iyz="0" izz="1000"/>
+    </inertial>
+  </link>
+
+
+  <joint name="right_front_arm_to_shoulder" type="revolute">
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="-0.610865" upper="1.48353" velocity="0.5"/>
+    <dynamics damping="0.0" friction="0.0"/>
+    <origin rpy="0 0.610865 0" xyz="0 -0.2594 0.107"/>
+    <parent link="right_front_joint"/>
+    <child link="right_front_arm"/>
+  </joint>
+
+  <!--right back arm-->
+
+  <link name="right_back_arm">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 -0.2 -0.57"/>
+      <geometry>
+        <mesh filename="package://spot/meshes/right_arm.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://spot/meshes/right_arm.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0.0 0 0" xyz="0 -0.2 -0.57"/>
+    </collision>
+    <inertial>
+      <mass value="0.15"/>
+      <inertia ixx="1000" ixy="0" ixz="0" iyy="1000" iyz="0" izz="1000"/>
+    </inertial>
+  </link>
+
+
+  <joint name="right_back_arm_to_shoulder" type="revolute">
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="-0.610865" upper="1.48353" velocity="0.5"/>
+    <dynamics damping="0.0" friction="0.0"/>
+    <origin rpy="0 0.610865 0" xyz="0 -0.2594 0.107"/>
+    <parent link="right_back_joint"/>
+    <child link="right_back_arm"/>
+  </joint>
+
+  <!--left front foot-->
+
+  <link name="left_front_foot">
+    <visual>
+      <origin rpy="3.14159 0 0" xyz="0.602699 0.244238 0.017011"/>
+      <geometry>
+        <mesh filename="package://spot/meshes/left_foot.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://spot/meshes/left_foot.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="3.14159 0 0" xyz="0.602699 0.244238 0.017011"/>
+      <contact_coefficients mu="1.1"/>
+    </collision>
+    <inertial>
+      <mass value="0.7"/>
+      <inertia ixx="1000" ixy="0" ixz="0" iyy="1000" iyz="0" izz="1000"/>
+    </inertial>
+  </link>
+
+
+  <joint name="left_front_foot_to_arm" type="revolute">
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="-0.959931" upper="1.5708" velocity="0.5"/>
+    <dynamics damping="0.0" friction="0.5"/>
+    <origin rpy="0 0 0" xyz="0.11924 0 -1.1419"/>
+    <parent link="left_front_arm"/>
+    <child link="left_front_foot"/>
+  </joint>
+
+  <!--left back foot-->
+
+  <link name="left_back_foot">
+    <visual>
+      <origin rpy="3.14159 0 0" xyz="0.602699 0.244238 0.017011"/>
+      <geometry>
+        <mesh filename="package://spot/meshes/left_foot.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://spot/meshes/left_foot.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="3.14159 0 0" xyz="0.602699 0.244238 0.017011" />
+      <contact_coefficients mu="1.1"/>
+    </collision>
+    <inertial>
+      <mass value="0.7"/>
+      <inertia ixx="1000" ixy="0" ixz="0" iyy="1000" iyz="0" izz="1000"/>
+    </inertial>
+  </link>
+
+
+  <joint name="left_back_foot_to_arm" type="revolute">
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="-0.959931" upper="1.5708" velocity="0.5"/>
+    <dynamics damping="0.0" friction="0.5"/>
+    <origin rpy="0 0 0" xyz="0.11924 0 -1.1419"/>
+    <parent link="left_back_arm"/>
+    <child link="left_back_foot"/>
+  </joint>
+
+  <!--right front foot-->
+
+  <link name="right_front_foot">
+    <visual>
+      <origin rpy="3.14159 0 0" xyz="0.602699 -0.244238 0.017011"/>
+      <geometry>
+        <mesh filename="package://spot/meshes/right_foot.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://spot/meshes/right_foot.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="3.14159 0 0" xyz="0.602699 -0.244238 0.017011"/>
+      <contact_coefficients mu="1.1"/>
+    </collision>
+    <inertial>
+      <mass value="0.7"/>
+      <inertia ixx="1000" ixy="0" ixz="0" iyy="1000" iyz="0" izz="1000"/>
+    </inertial>
+  </link>
+
+
+  <joint name="right_front_foot_to_arm" type="revolute">
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="-0.959931" upper="1.5708" velocity="0.5"/>
+    <dynamics damping="0.0" friction="0.5"/>
+    <origin rpy="0 0 0" xyz="0.11924 0 -1.1419"/>
+    <parent link="right_front_arm"/>
+    <child link="right_front_foot"/>
+  </joint>
+
+  <!--right back foot-->
+
+  <link name="right_back_foot">
+    <visual>
+      <origin rpy="3.14159 0 0" xyz="0.602699 -0.244238 0.017011"/>
+      <geometry>
+        <mesh filename="package://spot/meshes/right_foot.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://spot/meshes/right_foot.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="3.14159 0 0" xyz="0.602699 -0.244238 0.017011"/>
+      <contact_coefficients mu="1.1"/>
+    </collision>
+    <inertial>
+      <mass value="0.7"/>
+      <inertia ixx="1000" ixy="0" ixz="0" iyy="1000" iyz="0" izz="1000"/>
+    </inertial>
+  </link>
+
+
+  <joint name="right_back_foot_to_arm" type="revolute">
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="-0.959931" upper="1.5708" velocity="0.5"/>
+    <dynamics damping="0.0" friction="0.5"/>
+    <origin rpy="0 0 0" xyz="0.11924 0 -1.1419"/>
+    <parent link="right_back_arm"/>
+    <child link="right_back_foot"/>
+  </joint>
+
+  
+
+</robot>
+
+
+

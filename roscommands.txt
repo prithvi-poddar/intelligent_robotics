@@ -1,0 +1,5 @@
+rosnode list
+rostopic list
+rosnode info /turtlesim
+rosmsg show
+rostopic echo /turtle1/cmd_vel
